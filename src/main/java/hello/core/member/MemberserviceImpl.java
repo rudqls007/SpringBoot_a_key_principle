@@ -4,7 +4,7 @@ public class MemberserviceImpl implements MemberService {
 
     private final MemberRepositoty memberRepositoty;
 
-    public MemberserviceImpl(MemberRepositoty memberRepositoty) {
+    public MemberserviceImpl(MemoryMemberRepository memberRepositoty) {
         this.memberRepositoty = memberRepositoty;
     }
 
