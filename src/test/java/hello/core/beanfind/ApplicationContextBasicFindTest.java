@@ -12,6 +12,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+
+// 스프링 컨테이너에서 스프링 빈을 찾는 가장 기본적인 조회 방법
+//ac.getBean(빈이름, 타입)
+//ac.getBean(타입)
+//조회 대상 스프링 빈이 없으면 예외 발생
+//NoSuchBeanDefinitionException: No bean named 'xxxxx' available
 class ApplicationContextBasicFindTest {
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 
