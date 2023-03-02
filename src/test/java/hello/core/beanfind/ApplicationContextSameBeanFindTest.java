@@ -29,7 +29,18 @@ class ApplicationContextSameBeanFindTest {
                 MemberRepositoty.class);
         assertThat(memberRepository).isInstanceOf(MemberRepositoty.class);
     }
-
+    @Test
+    @DisplayName("특정 타입을 모두 조회하기")
+    void findAllBeanByType() {
+        Map<String, MemberRepositoty> beansOfType =
+                ac.getBeansOfType(MemberRepositoty.class);
+        for (String key : beansOfType.keySet()) {
+            System.out.println("key = " + key + " value = " +
+                    beansOfType.get(key));
+        }
+        System.out.println("beansOfType = " + beansOfType);
+        assertThat(beansOfType.size()).isEqualTo(2);
+    }
     @Configuration
     static class SameBeanConfig {
         @Bean
