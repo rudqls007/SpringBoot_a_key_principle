@@ -21,5 +21,15 @@ class ApplicationContextSameBeanFindTest {
         assertThrows(NoUniqueBeanDefinitionException.class, () ->
                 ac.getBean(MemberRepositoty.class));
     }
-
+    @Configuration
+    static class SameBeanConfig {
+        @Bean
+        public MemberRepositoty memberRepository1() {
+            return new MemoryMemberRepository();
+        }
+        @Bean
+        public MemberRepositoty memberRepository2() {
+            return new MemoryMemberRepository();
+        }
+    }
 }
