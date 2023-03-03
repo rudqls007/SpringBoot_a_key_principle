@@ -1,5 +1,6 @@
 package hello.core.beanfind;
 import hello.core.discount.DiscountPolicy;
+import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.MemberRepositoty;
 import hello.core.member.MemoryMemberRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -60,5 +61,12 @@ class ApplicationContextSameBeanFindTest {
         //DiscountPolicy bean = ac.getBean(DiscountPolicy.class);
         assertThrows(NoUniqueBeanDefinitionException.class, () ->
                 ac.getBean(DiscountPolicy.class));
+    }
+
+    @Test
+    @DisplayName("특정 하위 타입으로 조회")
+    void findBeanBySubType() {
+        RateDiscountPolicy bean = ac.getBean(RateDiscountPolicy.class);
+        assertThat(bean).isInstanceOf(RateDiscountPolicy.class);
     }
 }
